@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PupusApp",
+      "request": "launch",
+      "mainClass": "com.pupusapp.PupusAppApplication",
+      "projectName": "pupusapp"
+    }
+  ]
+}

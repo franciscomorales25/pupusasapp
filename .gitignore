@@ -1,0 +1,13 @@
+target/
+
+# IDE metadata
+.idea/
+*.iml
+
+# Local environment files
+.env
+.env.*
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+{
+  "info": {
+    "name": "PupusApp - Unidad 6",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "base", "value": "http://localhost:8080" }],
+  "item": [
+    { "name": "1. Ver menú (GET)", "request": { "method": "GET", "url": "{{base}}/api/pupusas" } },
+    { "name": "2. Pupusa por ID (GET)", "request": { "method": "GET", "url": "{{base}}/api/pupusas/1" } },
+    { "name": "3. Pupusa que no existe (404)", "request": { "method": "GET", "url": "{{base}}/api/pupusas/999" } },
+    { "name": "4. Baratas (@RequestParam)", "request": { "method": "GET", "url": "{{base}}/api/pupusas/baratas?maxPrecio=0.80" } },
+    { "name": "5. Crear pupusa (201)", "request": { "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Ayote\",\n  \"precio\": 0.80,\n  \"sku\": \"PUP-AYO-005\"\n}" },
+        "url": "{{base}}/api/pupusas" } },
+    { "name": "6. Precio inválido (400)", "request": { "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Gratis\",\n  \"precio\": 0,\n  \"sku\": \"PUP-GRA-006\"\n}" },
+        "url": "{{base}}/api/pupusas" } },
+    { "name": "7. SKU repetido (409)", "request": { "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Otra revuelta\",\n  \"precio\": 0.75,\n  \"sku\": \"PUP-REV-001\"\n}" },
+        "url": "{{base}}/api/pupusas" } },
+    { "name": "8. Saludo (inyección de dependencias)", "request": { "method": "GET", "url": "{{base}}/saludo?nombre=Karla" } },
+    { "name": "9. Menú en memoria (primer REST)", "request": { "method": "GET", "url": "{{base}}/api/memoria/pupusas" } }
+  ]
+}
